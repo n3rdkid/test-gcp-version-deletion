@@ -84,6 +84,7 @@ jobs:
         run : |
           gcloud app versions list --service="default" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 
       
+      
       - name : Version two step three DELTE
         run : |
                   gcloud app versions list --service="default" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 | xargs -r gcloud app versions --service="default" delete --quiet
