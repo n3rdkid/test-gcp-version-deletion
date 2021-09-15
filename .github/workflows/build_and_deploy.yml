@@ -74,21 +74,21 @@ jobs:
       # VERSION TWO
       - name : Version two  step one
         run : |
-          gcloud app versions list --service="default" --format="value(version.id)"
+          gcloud app versions list --service="front" --format="value(version.id)"
       
       - name : Version two  step two
         run : |
-          gcloud app versions list --service="default" --format="value(version.id)" --sort-by="~version.createTime"
+          gcloud app versions list --service="front" --format="value(version.id)" --sort-by="~version.createTime"
       
       - name : Version two  step two - 1
         run : |
-          gcloud app versions list --service="default" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 
+          gcloud app versions list --service="front" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 
       
 
-      - name : Version two step three DELTE
+      - name : Version two step three DELETE
         run : |
-                  gcloud app versions list --service="default" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 | xargs -r gcloud app versions delete --service default --quiet
+              gcloud app versions list --service="front" --format="value(version.id)" --sort-by="~version.createTime" | tail -n +6 | xargs -r gcloud app versions delete --service front --quiet
   
-  
+
       # - name : Delete old versions except latest 5 
       #   run:  gcloud app versions delete --service default `gcloud app versions list --service default | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | ghead -n -5 | tr "\n" " "`
