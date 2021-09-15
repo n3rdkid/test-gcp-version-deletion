@@ -54,6 +54,7 @@ jobs:
         run: |
           gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d :
       
+
       - name : Step four
         run: |
           gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2
