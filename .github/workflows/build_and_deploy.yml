@@ -45,30 +45,30 @@ jobs:
         run: gcloud app deploy app.yaml --quiet --project ${{secrets.GCP_PROJECT_ID}}
 
       - name : List APP versions
-        run: gcloud app versions list --service default 
+        run: gcloud app versions list --service front 
       
       - name : Step two
-        run:  gcloud app versions list --service default  | sed 's/  */:/g'
+        run:  gcloud app versions list --service front  | sed 's/  */:/g'
 
       - name : Step three
         run: |
-          gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d :
+          gcloud app versions list --service front  | sed 's/  */:/g' | cut -f 2 -d :
       
       - name : Step four
         run: |
-          gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2
+          gcloud app versions list --service front  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2
 
       - name : Step five
         run: |
-          gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5
+          gcloud app versions list --service front  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5
       
       - name : Step six
         run: |
-          gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5 | tr "\n" " "
+          gcloud app versions list --service front  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5 | tr "\n" " "
       
       - name : Delete step
         run: |
-          gcloud app versions delete --service default `gcloud app versions list --service default  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5 | tr "\n" " "`
+          gcloud app versions delete --service front `gcloud app versions list --service front  | sed 's/  */:/g' | cut -f 2 -d : | tail -n +2 | head -n 5 | tr "\n" " "`
       
       
       
