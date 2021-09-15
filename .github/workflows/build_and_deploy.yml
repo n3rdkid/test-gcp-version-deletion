@@ -41,7 +41,8 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SERVICE_KEY }}
 
-      # - name: Deploy to App Engine
-      #   run: gcloud app deploy app.yaml --quiet --project ${{secrets.GCP_PROJECT_ID}}
+      - name: Deploy to App Engine
+        run: gcloud app deploy app.yaml --quiet --project ${{secrets.GCP_PROJECT_ID}}
 
-      
+      - name : List APP versions
+        run: gcloud app versions list --service default
