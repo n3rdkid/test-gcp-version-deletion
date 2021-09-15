@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          THIS IS VERSION 0.0.7
+          THIS IS VERSION 0.0.8
         </h1>
 
         <p className={styles.description}>
