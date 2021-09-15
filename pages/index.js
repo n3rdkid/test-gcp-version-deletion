@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          THIS IS VERSION 0.0.1 BACKEND
+          THIS IS VERSION 0.0.2 BACKEND
         </h1>
 
         <p className={styles.description}>
